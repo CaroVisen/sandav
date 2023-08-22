@@ -6,6 +6,7 @@ export const Nav = styled.nav`
   background-color: #fff;
   font-weight: 600;
   border-bottom: 2px solid #eee;
+  justify-items: center;
 `;
 
 export const Item = styled.div`

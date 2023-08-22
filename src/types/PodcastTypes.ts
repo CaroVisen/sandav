@@ -7,5 +7,11 @@ export type PodcastFeed = {
 };
 
 export type PodcastEntry = {
-  "im:image": any[];
+  "im:image": Array<{ label: string }>;
+  "im:name": { label: string };
+  "im:artist": { label: string };
+  id: { attributes: { "im:id": string } };
+  summary: { label: string };
 };
+
+export type PodcastDetails = {};
