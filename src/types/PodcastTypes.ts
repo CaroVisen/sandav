@@ -13,5 +13,3 @@ export type PodcastEntry = {
   id: { attributes: { "im:id": string } };
   summary: { label: string };
 };
-
-export type PodcastDetails = {};
