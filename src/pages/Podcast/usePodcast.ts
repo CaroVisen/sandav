@@ -1,20 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getPodcastDetail } from "../../services/PodcastServices";
+import {
+  getPodcastDetail,
+  getPodcastEpisodes,
+} from "../../services/PodcastServices";
+import { useSelector } from "react-redux";
+import { Episode } from "../../types/EpisodesTypes";
+import { PodcastEntry } from "../../types/PodcastTypes";
+import { addPodcastSelected } from "../../redux/podcastSelectedSlice";
+import { useNavigate } from "react-router-dom";
 
 const usePodcast = () => {
   const { idPodcast } = useParams();
+  const podcastSelected = useSelector((state: any) => state.podcastSelected);
+  const [episodes, setEpisodes] = useState<Episode[]>([]);
 
   useEffect(() => {
-    console.log(idPodcast);
     if (idPodcast != undefined) {
-      getPodcastDetail(idPodcast).then((res) => {
-        console.log(res);
+      getPodcastEpisodes().then((res) => {
+        setEpisodes(res);
       });
     }
   }, []);
 
-  return {};
+  return { podcastSelected, episodes };
 };
 
 export default usePodcast;

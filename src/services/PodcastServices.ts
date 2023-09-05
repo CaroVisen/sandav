@@ -28,3 +28,15 @@ export const getPodcastDetail = async (id: string) => {
     return [];
   }
 };
+
+export const getPodcastEpisodes = async () => {
+  try {
+    const response = await axios.get(
+      "https://api.allorigins.win/raw?url=https://rss.applemarketingtools.com/api/v2/us/podcasts/top/10/podcast-episodes.json"
+    );
+    return response.data.feed.results;
+  } catch (err) {
+    console.log("error: ", err);
+    return [];
+  }
+};

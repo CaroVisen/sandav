@@ -10,6 +10,7 @@ const PodcastCard = (props: any) => {
 
   return (
     <Card
+      key={podcast.id.attributes["im:id"]}
       onClick={() => {
         goToPodcast(podcast);
       }}

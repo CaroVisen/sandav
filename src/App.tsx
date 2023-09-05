@@ -10,7 +10,6 @@ import Navbar from "./componentes/Navbar/Navbar";
 function App() {
   return (
     <div className="App">
-      {/* <Header /> */}
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -20,10 +19,8 @@ function App() {
             path="/podcast/:idPodcast/episode/:idEpisode"
             element={<Episode />}
           />
-          {/* <Route path="/contacto" element={<Contacto />} /> */}
         </Routes>
       </BrowserRouter>
-      {/* <Footer /> */}
     </div>
   );
 }
